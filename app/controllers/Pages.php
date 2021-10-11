@@ -3,6 +3,12 @@ class Pages extends Controller
 {
   public function __construct()
   {
+    if (!isLoggedIn()) {
+      redirect('users/login');
+    }
+    //new model instance
+    $this->animalModel = $this->model('Animal');
+    $this->userModel = $this->model('User');
   }
 
   public function index()
@@ -46,5 +52,15 @@ class Pages extends Controller
     ];
 
     $this->view('pages/contact', $data);
+  }
+
+  public function backOffice()
+  {
+
+    $demandeClient = $this->animalModel->getAnimalReservation();
+    $data = [
+      'demandeClient' => $demandeClient
+    ];
+    $this->view('pages/backOffice', $data);
   }
 }

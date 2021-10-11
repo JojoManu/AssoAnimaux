@@ -8,24 +8,30 @@
                         <h2 class="card-text">Edit Post</h2>
                     </div>
                     <div class="col">
-                        <a href="<?php echo URLROOT ;?>/posts" class="btn btn-light pull-right"><i class="fa fa-backward"></i> Back</a>
+                        <a href="<?php echo URLROOT; ?>/posts" class="btn btn-light pull-right"><i class="fa fa-backward"></i> Back</a>
                     </div>
-                    
+
                 </div>
                 <p class="card-text">Please enter your username and password</p>
             </div>
-        
+
             <div class="card-body">
-                <form method="post" action="<?php echo URLROOT ;?>/Posts/edit/<?php echo $data['id'] ;?>">
+                <form method="post" action="<?php echo URLROOT; ?>/Animals/edit/<?php echo $data['id']; ?>">
                     <div class="form-group">
-                        <label for="title">Title<sub>*</sub></label>
-                        <input type="text" name="title" class="form-control form-control-lg <?php echo (!empty($data['title_err'])) ? 'is-invalid' : '' ;?>" value="<?php echo $data['title'] ;?>">
-                        <span class="invalid-feedback"><?php echo $data['title_err'] ;?> </span>
+                        <label for="nom">Nom<sub>*</sub></label>
+                        <input type="text" name="nom" class="form-control form-control-lg <?php echo (!empty($data['nom_err'])) ? 'is-invalid' : ''; ?>" value="<?php echo $data['nom']; ?>">
+                        <span class="invalid-feedback"><?php echo $data['nom_err']; ?> </span>
                     </div>
-                    
+
                     <div class="form-group">
-                        <label for="password">Body<sub>*</sub></label>
-                        <textarea type="text" name="body" class="form-control form-control-lg <?php echo (!empty($data['body_err'])) ? 'is-invalid' : '' ;?>"><?php echo $data['body'] ;?></textarea><span class="invalid-feedback"><?php echo $data['title_err'] ;?> </span>
+                        <label for="description">Description<sub>*</sub></label>
+                        <textarea type="text" name="description" class="form-control form-control-lg <?php echo (!empty($data['description_err'])) ? 'is-invalid' : ''; ?>"><?php echo $data['description']; ?></textarea><span class="invalid-feedback"><?php echo $data['nom_err']; ?> </span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="age">Age<sub>*</sub></label>
+                        <input type="text" name="age" class="form-control form-control-lg <?php echo (!empty($data['age_err'])) ? 'is-invalid' : ''; ?>" value="<?php echo $data['age']; ?>">
+                        <span class="invalid-feedback"><?php echo $data['age_err']; ?> </span>
                     </div>
 
                     <div class="form-group">

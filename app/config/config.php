@@ -3,13 +3,13 @@
 define('DB_HOST', 'localhost');
 define('DB_USER', 'root');
 define('DB_PASS', '');
-define('DB_NAME', 'shareposts');
+define('DB_NAME', 'asso_animaux');
 
 // App Root
 define('APPROOT', dirname(dirname(__FILE__)));
 // URL Root
 define('URLROOT', 'http://localhost/AssoAnimaux');
 // Site Name
-define('SITENAME', 'Emmizy MVC Frame');
+define('SITENAME', 'AssoAnimaux');
 // App Version
 define('APPVERSION', '1.0.0');
