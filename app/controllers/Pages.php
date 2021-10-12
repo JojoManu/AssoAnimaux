@@ -54,13 +54,42 @@ class Pages extends Controller
     $this->view('pages/contact', $data);
   }
 
-  public function backOffice()
+  public function backOfficeAnimaux()
   {
 
     $demandeClient = $this->animalModel->getAnimalReservation();
     $data = [
       'demandeClient' => $demandeClient
     ];
-    $this->view('pages/backOffice', $data);
+    $this->view('pages/backOfficeAnimaux', $data);
+  }
+
+  public function backOfficeUsers()
+  {
+
+    $users = $this->userModel->getUsers();
+    $data = [
+      'users' => $users
+    ];
+    $this->view('pages/backOfficeUsers', $data);
+  }
+
+  public function update($id, $role)
+  {
+    $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+    if ($role === "0") {
+      $data = [
+        'id' => $id,
+        'role' => "1",
+      ];
+    } else if ($role === "1") {
+      $data = [
+        'id' => $id,
+        'role' => "0",
+      ];
+    }
+
+    $this->userModel->updateUserRole($data);
+    //redirect('pages/backOfficeUsers');
   }
 }

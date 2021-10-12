@@ -35,6 +35,10 @@
           <li class="nav-item">
             <a class="nav-link" href="<?php echo URLROOT; ?>/users/logout">Logout</a>
           </li>
+        <?php elseif (isset($_SESSION['role'])) : ?>
+          <li class="nav-item">
+            <a class="nav-link" href="<?php echo URLROOT; ?>/users/logout">Logout</a>
+          </li>
         <?php else : ?>
           <li class="nav-item">
             <a class="nav-link" href="<?php echo URLROOT; ?>/users/register">Register</a>
