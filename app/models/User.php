@@ -74,7 +74,6 @@ class User
 
     public function updateUserRole($data)
     {
-        var_dump($data);
         $this->db->query('UPDATE user SET role = :role WHERE id = :id');
         $this->db->bind(':id', $data['id']);
         $this->db->bind(':role', $data['role']);

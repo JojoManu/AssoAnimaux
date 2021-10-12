@@ -90,6 +90,6 @@ class Pages extends Controller
     }
 
     $this->userModel->updateUserRole($data);
-    //redirect('pages/backOfficeUsers');
+    redirect('pages/backOfficeUsers');
   }
 }
