@@ -8,11 +8,10 @@
                         <h2 class="card-text">Edit Post</h2>
                     </div>
                     <div class="col">
-                        <a href="<?php echo URLROOT; ?>/posts" class="btn btn-light pull-right"><i class="fa fa-backward"></i> Back</a>
+                        <a href="<?php echo URLROOT; ?>/Animals/" class="btn btn-light pull-right"><i class="fa fa-backward"></i> Back</a>
                     </div>
 
                 </div>
-                <p class="card-text">Please enter your username and password</p>
             </div>
 
             <div class="card-body">

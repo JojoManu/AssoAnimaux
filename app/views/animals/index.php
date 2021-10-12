@@ -14,6 +14,7 @@
     <div class="card mb-3 mt-2">
         <div class="card-body">
             <h2 class="card-text"><?php echo  $animal->nom; ?></h2>
+            <h5 class="card-text"><?php echo  $animal->age; ?> ans</h5>
         </div>
         <p class="card-body">
             <?php echo  $animal->nom; ?>

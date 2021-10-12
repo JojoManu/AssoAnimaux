@@ -34,7 +34,7 @@ class Animals extends Controller
         $this->view('animals/allAnimals', $data);
     }
 
-    //add new animal
+    //Ajouter un animal
     public function add()
     {
         $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
@@ -82,7 +82,7 @@ class Animals extends Controller
         }
     }
 
-    //show single post 
+    //Obtenir un animal grâce à son id et montrer ses informations
     public function show($id)
     {
         $animal = $this->animalModel->getAnimalById($id);
@@ -94,7 +94,7 @@ class Animals extends Controller
         $this->view('animals/show', $data);
     }
 
-    //edit animals
+    //Mise à jour d'un animal
     public function edit($id)
     {
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
@@ -131,7 +131,6 @@ class Animals extends Controller
                 $this->view('animals/edit', $data);
             }
         } else {
-            //check for the owner and call method from post model
             $animal = $this->animalModel->getAnimalById($id);
             $data = [
                 'id' => $id,
@@ -144,7 +143,7 @@ class Animals extends Controller
         }
     }
 
-    //delete animal
+    //supprimer un animal
     public function delete($id)
     {
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
@@ -153,8 +152,6 @@ class Animals extends Controller
             if ($_SESSION['role'] !== "1") {
                 redirect('animals');
             }
-
-            //call delete method from post model
             if ($this->postModel->deletePost($id)) {
                 flash('animal_message', 'Animal Removed');
                 redirect('animals');
@@ -166,7 +163,7 @@ class Animals extends Controller
         }
     }
 
-    //add new reservation
+    //Créations d'une demande ou autre requete que l'admin peut voir dans le backOffice
     public function addReservation($id)
     {
         $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
@@ -183,12 +180,9 @@ class Animals extends Controller
                 die('something went wrong');
             }
         } else {
-            //check for the owner and call method from post model
-            $animal = $this->animalModel->getAnimalById($id);
             $data = [
                 'id' => $id,
             ];
-
             $this->view('animals/contact', $data);
         }
     }

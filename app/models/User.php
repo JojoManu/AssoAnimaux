@@ -53,6 +53,7 @@ class User
         }
     }
 
+    //Obtenir un utilisateur spécifique grâce à son id
     public function getUserById($id)
     {
         $this->db->query('SELECT * FROM user WHERE id = :id');
@@ -63,6 +64,7 @@ class User
         return $row;
     }
 
+    //Obtenir tout les utilisateurs
     public function getUsers()
     {
         $this->db->query('SELECT * FROM user');
@@ -72,13 +74,13 @@ class User
         return $result;
     }
 
+    //Mettre à jour le rôle d'un utilisateur
     public function updateUserRole($data)
     {
         $this->db->query('UPDATE user SET role = :role WHERE id = :id');
         $this->db->bind(':id', $data['id']);
         $this->db->bind(':role', $data['role']);
 
-        //execute 
         if ($this->db->execute()) {
             return true;
         } else {

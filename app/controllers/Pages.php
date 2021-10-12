@@ -11,49 +11,8 @@ class Pages extends Controller
     $this->userModel = $this->model('User');
   }
 
-  public function index()
-  {
-    if (isLoggedIn()) {
-      redirect('animals');
-    }
-    $data = [
-      'title' => 'SharePosts',
-      'description' => 'Simple social network built on the Emmizy MVC framework',
-      'info' => 'You can contact me with the following details below if you like my program and willing to offer me a contract and work on your project',
-      'name' => 'Omonzebaguan Emmanuel',
-      'location' => 'Nigeria, Edo State',
-      'contact' => '+2348147534847',
-      'mail' => 'emmizy2015@gmail.com'
-    ];
-
-    $this->view('pages/index', $data);
-  }
-
-  public function about()
-  {
-    $data = [
-      'title' => 'About Us',
-      'description' => 'App to share posts with other users'
-    ];
-
-    $this->view('pages/about', $data);
-  }
-
-  public function contact()
-  {
-    $data = [
-      'title' => 'Contact Us',
-      'description' => 'You can contact us through this medium',
-      'info' => 'You can contact me with the following details below if you like my program and willing to offer me a contract and work on your project',
-      'name' => 'Omonzebaguan Emmanuel',
-      'location' => 'Nigeria, Edo State',
-      'contact' => '+2348147534847',
-      'mail' => 'emmizy2015@gmail.com'
-    ];
-
-    $this->view('pages/contact', $data);
-  }
-
+  //Cette partie du backOffice Permet de voir toutes les demandes de reservation
+  //on peut voir dans cette partie du backOffice le mail de l'utilisateur util afin de vouloir le contacté pour poursuivre le processus d'adoption
   public function backOfficeAnimaux()
   {
 
@@ -64,6 +23,8 @@ class Pages extends Controller
     $this->view('pages/backOfficeAnimaux', $data);
   }
 
+  //Cette partie du backOffice permet de voir tout les utilisateurs inscrit ainsi que leur status
+  //Un bouton permet de changer le rôle d'un utlisateur: soit utilisaur normal soit admin
   public function backOfficeUsers()
   {
 
@@ -74,6 +35,7 @@ class Pages extends Controller
     $this->view('pages/backOfficeUsers', $data);
   }
 
+  //Permet de changer le rôle d'un utilisateurs
   public function update($id, $role)
   {
     $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);

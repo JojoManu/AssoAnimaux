@@ -12,7 +12,6 @@
                     </div>
 
                 </div>
-                <p class="card-text">Please enter your username and password</p>
             </div>
 
             <div class="card-body">

@@ -13,12 +13,6 @@
         <li class="nav-item">
           <a class="nav-link" href="<?php echo URLROOT; ?>/animals/AllAnimals">Tout les Animaux</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="<?php echo URLROOT; ?>/pages/about">About</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="<?php echo URLROOT; ?>/pages/contact">Contact</a>
-        </li>
       </ul>
 
       <ul class="navbar-nav ml-auto">

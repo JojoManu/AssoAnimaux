@@ -8,6 +8,7 @@ class Animal
         $this->db = new Database;
     }
 
+    //Obtenir tout animaux
     public function getAnimals()
     {
         $this->db->query('SELECT *
@@ -18,6 +19,7 @@ class Animal
         return $result;
     }
 
+    //Obtenir les 10 animaux les plus récemment ajoutés
     public function getLast10Animals()
     {
         $this->db->query('SELECT *
@@ -29,6 +31,7 @@ class Animal
         return $result;
     }
 
+    //Obtenir un animal grâce à son id
     public function getAnimalById($id)
     {
         $this->db->query('SELECT * FROM animals WHERE id = :id');
@@ -38,6 +41,7 @@ class Animal
         return $row;
     }
 
+    //Ajouter un animal
     public function addAnimal($data)
     {
         $this->db->query('INSERT INTO animals(nom, description, age) VALUES (:nom, :description, :age)');
@@ -45,7 +49,6 @@ class Animal
         $this->db->bind(':description', $data['description']);
         $this->db->bind(':age', $data['age']);
 
-        //execute 
         if ($this->db->execute()) {
             return true;
         } else {
@@ -53,6 +56,7 @@ class Animal
         }
     }
 
+    //Obtenir toutes les reservations, ce qui les affiches dans le backOffice/Animaux
     public function getAnimalReservation()
     {
         $this->db->query('SELECT *
@@ -63,6 +67,7 @@ class Animal
         return $result;
     }
 
+    //Mettre un jour un animal
     public function updateAnimal($data)
     {
         $this->db->query('UPDATE animals SET nom = :nom, description = :description, age = :age WHERE id = :id');
@@ -71,7 +76,6 @@ class Animal
         $this->db->bind(':description', $data['description']);
         $this->db->bind(':age', $data['age']);
 
-        //execute 
         if ($this->db->execute()) {
             return true;
         } else {
@@ -79,7 +83,7 @@ class Animal
         }
     }
 
-    //delete a post
+    //Supprimer un animal
     public function deleteAnimal($id)
     {
         $this->db->query('DELETE FROM animals WHERE id = :id');
@@ -92,6 +96,7 @@ class Animal
         }
     }
 
+    //Créer une reservation pour un animal, ce qui envoie un message à l'admin dans le backOffice/Animaux
     public function addReservation($data)
     {
         $this->db->query('INSERT INTO demandeClient(id_animal, contact, text) VALUES (:id_animal, :contact, :text)');
@@ -99,7 +104,6 @@ class Animal
         $this->db->bind(':contact', $_SESSION['email']);
         $this->db->bind(':text', $data['text']);
 
-        //execute 
         if ($this->db->execute()) {
             return true;
         } else {
