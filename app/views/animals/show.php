@@ -15,6 +15,14 @@
         Ajouté le <?php echo  $data['animal']->dateAjout; ?>
     </p>
 
+    <?php if ($_SESSION['role'] === "0") : ?>
+        <div class="row">
+            <div class="col">
+                <a href="<?php echo URLROOT; ?>/animals/addReservation/<?php echo $data['animal']->id; ?>" class="btn btn-dark btn-block">Contacté un admin</a>
+            </div>
+        </div>
+    <?php endif; ?>
+
     <?php if ($_SESSION['role'] === "1") : ?>
         <div class="row">
             <div class="col">

@@ -165,4 +165,31 @@ class Animals extends Controller
             redirect('animals');
         }
     }
+
+    //add new reservation
+    public function addReservation($id)
+    {
+        $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+            $data = [
+                'id_animal' => $id,
+                'text' => trim($_POST['text']),
+            ];
+            //validate error free
+            if ($this->animalModel->addReservation($data)) {
+                flash('animal_message', 'Your animal have been added');
+                redirect('animals');
+            } else {
+                die('something went wrong');
+            }
+        } else {
+            //check for the owner and call method from post model
+            $animal = $this->animalModel->getAnimalById($id);
+            $data = [
+                'id' => $id,
+            ];
+
+            $this->view('animals/contact', $data);
+        }
+    }
 }

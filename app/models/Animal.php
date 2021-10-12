@@ -91,4 +91,19 @@ class Animal
             return false;
         }
     }
+
+    public function addReservation($data)
+    {
+        $this->db->query('INSERT INTO demandeClient(id_animal, contact, text) VALUES (:id_animal, :contact, :text)');
+        $this->db->bind(':id_animal', $data['id_animal']);
+        $this->db->bind(':contact', $_SESSION['email']);
+        $this->db->bind(':text', $data['text']);
+
+        //execute 
+        if ($this->db->execute()) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 }
